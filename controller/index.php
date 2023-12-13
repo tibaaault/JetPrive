@@ -12,7 +12,6 @@ class Index
         }
 
         $lesActions = [
-            'homePage' => HomePage::class,
             'firstForm' => Form1::class,
             'secondForm' => Form2::class,
             'thirdForm' => Form3::class,
@@ -23,11 +22,11 @@ class Index
         ];
 
 
-        if (array_key_exists($action, $lesActions)) {
-            $fichier = $action . ".php";
-        } else {
-            $fichier = "homePage.php";
+        if (!array_key_exists($action, $lesActions)) {
+            $action = "firstForm";
         }
+
+        $fichier = $action . ".php";
 
         $lesActions = $lesActions[$action];
         $ctlr = new $lesActions();

@@ -46,6 +46,7 @@
                             <?php
                             // Réinitialisez le prix des options pour chaque itération de $finish
                             $optionsPrice = 0;
+                            if (!empty($options)){
                             foreach ($options as $option) {
                                 $optionsPrice += $option['prix'];
                             ?>
@@ -53,6 +54,9 @@
                             <?php
                             }
                             $totalPrice = $jetPrice + $colorPrice + $finishingPrice + $optionsPrice;
+                        } else {
+                            $totalPrice = $jetPrice + $colorPrice + $finishingPrice;
+                        }   
                             ?>
                         </div>
                     </div>

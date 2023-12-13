@@ -57,13 +57,18 @@
                                     // Réinitialisez le prix des options pour chaque itération de $finish
                                     $optionsPrice = 0;
                                     $selectedOptionsIds = array();
-                                    foreach ($options as $option) {
-                                        $selectedOptionsIds[] = $option['id'];
-                                        $optionsPrice += $option['prix'];
+                                    if (!empty($options)) {
+                                        foreach ($options as $option) {
+                                            $selectedOptionsIds[] = $option['id'];
+                                            $optionsPrice += $option['prix'];
                                     ?>
-                                        <p class="lead" style="font-size: 26px;"><b><?= $option['nom'] ?> : </b><?= $option['description'] ?></p>
+                                            <p class="lead" style="font-size: 26px;"><b><?= $option['nom'] ?> : </b><?= $option['description'] ?></p>
                                     <?php
-                                        $totalPrice = $jetPrice + $colorPrice + $finishingPrice + $optionsPrice;
+                                            $totalPrice = $jetPrice + $colorPrice + $finishingPrice + $optionsPrice;
+                                        }
+                                    } else {
+                                        echo "Aucune option choisie";
+                                        $totalPrice = $jetPrice + $colorPrice + $finishingPrice;
                                     }
                                     ?>
                                 </div>

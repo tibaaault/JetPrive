@@ -9,8 +9,13 @@ class Form5
 
         if (isset($_POST['submitOptions'])) {
             // Récupérer les options sélectionnées
-            $selectedOptions = $_POST['selectedOptions'];
-            $options = $db->RequeteOptionsResume($selectedOptions);
+            if (!empty($_POST['selectedOptions'])) {
+                $selectedOptions = $_POST['selectedOptions'];
+                $options = $db->RequeteOptionsResume($selectedOptions);
+            } 
+            else {
+                $options = array();
+            }
             $_SESSION['options'] = $options;
 
             $guarantees = $db->RequeteFifthForm();

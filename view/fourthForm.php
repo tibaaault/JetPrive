@@ -52,6 +52,7 @@
                     <p class="h2 text-center mb-4 text-dark">Choix des options</p>
                     <form action="./?action=fifthForm" method="post">
                         <div class="row d-flex align-items-stretch">
+                            
                             <?php foreach ($options as $option) {
                                 $option['prix'] = number_format($option['prix'], 0, ',', '.');
                             ?>
