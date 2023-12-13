@@ -13,10 +13,6 @@
         <div class="d-flex" style="height:50px;"></div>
     </div>
     <?php
-    $jet = $_SESSION['jet'];
-    $color = $_SESSION['color'];
-    $finishing = $_SESSION['finishing'];
-    $options = $_SESSION['options'];
     foreach ($jet as $unJet) {
         $jetPrice = $unJet['prix'];
         foreach ($color as $col) {
@@ -64,18 +60,18 @@
                         <p class="h1 text-center mb-5 mt-5">Durée de la garantie</p>
                         <div class="row">
                             <?php
-                            foreach ($garanties as $garantie) {
-                                $price = $totalPrice * $garantie['prix'];
+                            foreach ($guarantees as $guarantee) {
+                                $price = $totalPrice * $guarantee['prix'];
                                 $price = number_format($price, 0, ',', '.');
                             ?>
                                 <div class="col-xl-4 col-sm">
                                     <div class="card">
                                         <div class="card-body text-center">
-                                            <p class="h4 card-title justidy-content-between"><b><?= $garantie['annee'] ?> année(s) de garantie</b></p><br>
-                                            <p class="h5"><b><?= $garantie['pourcentage'] ?></b></p><br>
+                                            <p class="h4 card-title justidy-content-between"><b><?= $guarantee['annee'] ?> année(s) de garantie</b></p><br>
+                                            <p class="h5"><b><?= $guarantee['pourcentage'] ?></b></p><br>
                                             <p class="h5"><b>Prix de la garantie : <?= $price ?>€</b></p>
                                             <form action="./?action=resume" method="post">
-                                                <button type="submit" class="mb-3 btn btn-primary" name="selectionGarantie" value="<?= $garantie['idGarantie'] ?>">Choisir</button><br>
+                                                <button type="submit" class="mb-3 btn btn-primary" name="selectionGuarantee" value="<?= $guarantee['idGarantie'] ?>">Choisir</button><br>
                                             </form>
                                         </div>
                                     </div>

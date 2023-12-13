@@ -1,6 +1,5 @@
 <?php
 
-$racine = $_SESSION['racine'];
 
 class HomePage
 {

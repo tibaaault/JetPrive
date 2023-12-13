@@ -1,7 +1,5 @@
 <?php
 
-$racine = $_SESSION['racine'];
-
 
 class Form2
 {

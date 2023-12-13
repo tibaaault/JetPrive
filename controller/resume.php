@@ -1,18 +1,21 @@
 <?php
 
-$racine = $_SESSION['racine'];
-
 
 class ResumeSelection
 {
     public function process()
-    {   
+    {
         $db = new InteractionDB();
-       
-        if (isset($_POST['selectionGarantie'])) {
-            $id_garantie = $_POST['selectionGarantie'];
-            $garantie = $db->OneGarantie($id_garantie);
-            $_SESSION['garantie'] = $garantie;
+
+        if (isset($_POST['selectionGuarantee'])) {
+            $id_guarantee = $_POST['selectionGuarantee'];
+            $guarantee = $db->OneGuarantee($id_guarantee);
+            $_SESSION['guarantee'] = $guarantee;
+
+            $jet = $_SESSION['jet'];
+            $color = $_SESSION['color'];
+            $finishing = $_SESSION['finishing'];
+            $options = $_SESSION['options'];
         }
 
 

@@ -1,8 +1,5 @@
 <?php
 
-$racine = $_SESSION['racine'];
-
-
 class Form3
 {
     public function process()

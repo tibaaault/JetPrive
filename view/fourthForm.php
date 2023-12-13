@@ -17,8 +17,8 @@
         $jet = $_SESSION['jet'];
         $color = $_SESSION['color'];
         $finishing = $_SESSION['finishing'];
-        foreach ($jet as $unJet) {
-            $jetPrice = $unJet['prix'];
+        foreach ($jet as $oneJet) {
+            $jetPrice = $oneJet['prix'];
             foreach ($color as $col) {
                 $colorPrice = $col['prix'];
                 foreach ($finishing as $finish) {
@@ -31,13 +31,13 @@
                     <div class="row">
                         <div class="col-xl-6 col-sm">
                             <div class="hover-overlay ripple p-5" data-mdb-ripple-color="light">
-                                <img src="../pictures/<?= $unJet['nom'] ?>.png" class="card-img-top rounded " alt="<?= $unJet['nom'] ?>" />
+                                <img src="../pictures/<?= $oneJet['nom'] ?>.png" class="card-img-top rounded " alt="<?= $oneJet['nom'] ?>" />
                             </div>
                         </div>
                         <div class="col-xl-6 col-sm">
                             <p class="h3 text-center pt-5 pb-2">Configuration actuelle</p>
                             <hr class="p-xl-5">
-                            <p class="lead" style="font-size: 26px;"><b>Modèle : </b> <?= $unJet['nom'] ?></p>
+                            <p class="lead" style="font-size: 26px;"><b>Modèle : </b> <?= $oneJet['nom'] ?></p>
                             <p class="lead" style="font-size: 26px;"><b>Couleur : </b><?= $col['couleur'] ?></p>
                             <p class="lead" style="font-size: 26px;"><b>Finition : </b><?= $finish['categorie'] ?></p>
                             <p class="lead" style="font-size: 26px;"><b>Prix : </b> <?= $totalPrice . ' €' ?></p>

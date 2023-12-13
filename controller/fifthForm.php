@@ -1,7 +1,5 @@
 <?php
 
-$racine = $_SESSION['racine'];
-
 
 class Form5
 {
@@ -15,7 +13,12 @@ class Form5
             $options = $db->RequeteOptionsResume($selectedOptions);
             $_SESSION['options'] = $options;
 
-            $garanties = $db->RequeteFifthForm();
+            $guarantees = $db->RequeteFifthForm();
+
+            $jet = $_SESSION['jet'];
+            $color = $_SESSION['color'];
+            $finishing = $_SESSION['finishing'];
+            $options = $_SESSION['options'];
         }
 
 

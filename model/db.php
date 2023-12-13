@@ -91,11 +91,11 @@ class InteractionDB
         try {
             $statement = $db->prepare("SELECT * FROM garantie");
             $statement->execute();
-            $garanties = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $guarantees = $statement->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());
         }
-        return $garanties;
+        return $guarantees;
     }
 
 
@@ -181,21 +181,21 @@ class InteractionDB
     }
 
 
-    public function OneGarantie($id_garantie)
+    public function OneGuarantee($id_guarantee)
     {
         $db = $this->Connexion();
         try {
-            $statement = $db->prepare("SELECT * FROM garantie WHERE idGarantie = :id_garantie");
+            $statement = $db->prepare("SELECT * FROM garantie WHERE idgarantie = :id_garantie");
             $statement->execute(array(
-                ":id_garantie" => $id_garantie
+                ":id_garantie" => $id_guarantee
             ));
             $statement->execute();
-            $garantie = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $guarantee = $statement->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());
         }
 
-        return $garantie;
+        return $guarantee;
     }
 
 }

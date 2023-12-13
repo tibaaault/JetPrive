@@ -17,15 +17,17 @@
     $color = $_SESSION['color'];
     $finishing = $_SESSION['finishing'];
     $options = $_SESSION['options'];
-    $garantie = $_SESSION['garantie'];
-    foreach ($jet as $unJet) {
-        $jetPrice = $unJet['prix'];
+    $guarantee = $_SESSION['guarantee'];
+
+
+    foreach ($jet as $oneJet) {
+        $jetPrice = $oneJet['prix'];
         foreach ($color as $col) {
             $colorPrice = $col['prix'];
             foreach ($finishing as $finish) {
                 $finishingPrice = $finish['prix'];
-                foreach ($garantie as $garant) {
-                    $garantiePrice = $garant['prix'];
+                foreach ($guarantee as $garant) {
+                    $guaranteePrice = $garant['prix'];
 
     ?>
                     <div class="col-xl-12 col-sm col-lg col-md border">
@@ -33,14 +35,14 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="hover-overlay ripple p-5" data-mdb-ripple-color="light">
-                                        <img src="../pictures/<?= $unJet['nom'] ?>.png" class="card-img-top rounded " alt="<?= $unJet['nom'] ?>" />
+                                        <img src="../pictures/<?= $oneJet['nom'] ?>.png" class="card-img-top rounded " alt="<?= $oneJet['nom'] ?>" />
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="d-flex" style="height:50px;"></div>
                                     <p class="h3 text-center pt-5 pb-2">Configuration actuelle</p>
                                     <hr class="p-3">
-                                    <p class="lead" style="font-size: 26px;"><b>Modèle : </b> <?= $unJet['nom'] ?></p>
+                                    <p class="lead" style="font-size: 26px;"><b>Modèle : </b> <?= $oneJet['nom'] ?></p>
                                     <p class="lead" style="font-size: 26px;"><b>Couleur : </b><?= $col['couleur'] ?></p>
                                     <p class="lead" style="font-size: 26px;"><b>Finition : </b><?= $finish['categorie'] ?></p>
                                     <p class="lead" style="font-size: 26px;"><b>Garantie : </b><?= $garant['annee'] ?> année(s)</p>
@@ -72,19 +74,19 @@
                                         <p class="lead" style="font-size: 26px;"><b>Prix de la couleur : </b><?= $colorPrice . ' €' ?></p>
                                         <p class="lead" style="font-size: 26px;"><b>Prix de la finition : </b><?= $finishingPrice . ' €' ?></p>
                                         <p class="lead" style="font-size: 26px;"><b>Prix des options : </b><?= $optionsPrice . ' €' ?></p>
-                                        <?php $garantiePrice = $totalPrice * $garantiePrice ?>
-                                        <p class="lead" style="font-size: 26px;"><b>Prix de la garantie : </b><?= $garantiePrice . ' €' ?></p>
+                                        <?php $guaranteePrice = $totalPrice * $guaranteePrice ?>
+                                        <p class="lead" style="font-size: 26px;"><b>Prix de la garantie : </b><?= $guaranteePrice . ' €' ?></p>
                                     </div>
                                     <?php
-                                    $totalPrice = $totalPrice + $garantiePrice;
+                                    $totalPrice = $totalPrice + $guaranteePrice;
                                     $totalPriceTTC = number_format($totalPrice, 0, ',', '.');
                                     ?>
                                     <p class="lead text-center" style="font-size: 26px;"><b>Le prix TTC de vos configurations est : </b> <?= $totalPriceTTC . ' €' ?></p>
                                     <?php
-                                    $prixHT = $totalPrice / 1.2;
-                                    $prixHT = number_format($prixHT, 0, ',', '.');
+                                    $priceHT = $totalPrice / 1.2;
+                                    $priceHT = number_format($priceHT, 0, ',', '.');
                                     ?>
-                                    <p class="lead text-center" style="font-size: 26px;"><b>Le prix HT de vos configurations est : </b> <?= $prixHT . ' €' ?></p>
+                                    <p class="lead text-center" style="font-size: 26px;"><b>Le prix HT de vos configurations est : </b> <?= $priceHT . ' €' ?></p>
 
                                 </div>
                             </div>
@@ -99,16 +101,16 @@
     <div class="mx-auto text-center mt-3">
         <p class="h3 text-center pt-3 pb-3"><u>Partager votre configuration avec ce lien</u></p>
         <?php
-        foreach ($jet as $unJet) {
-            $jetPrice = $unJet['prix'];
+        foreach ($jet as $oneJet) {
+            $jetPrice = $oneJet['prix'];
             foreach ($color as $col) {
                 $colorPrice = $col['prix'];
                 foreach ($finishing as $finish) {
                     $finishingPrice = $finish['prix'];
-                    foreach ($garantie as $garant) {
-                        $garantiePrice = $garant['prix'];
+                    foreach ($guarantee as $garant) {
+                        $guaranteePrice = $garant['prix'];
         ?>
-                        <p class="lead">http://localhost:8888/?action=displayConfig&idModele=<?= $unJet['id'] ?>&idColor=<?= $col['id'] ?>&idFinishing=<?= $finish['id'] ?>&idGarantie=<?= $garant['idGarantie'] ?>&idSelectedOptions=<?= implode(',', $selectedOptionsIds); ?></p>
+                        <p class="lead">http://localhost:8888/?action=displayConfig&idModele=<?= $oneJet['id'] ?>&idColor=<?= $col['id'] ?>&idFinishing=<?= $finish['id'] ?>&idGuarantee=<?= $garant['idGarantie'] ?>&idSelectedOptions=<?= implode(',', $selectedOptionsIds); ?></p>
         <?php
                     }
                 }

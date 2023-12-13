@@ -12,17 +12,17 @@
     <?php
     $paints = $_SESSION['paints'];
     $jet = $_SESSION['jet'];
-    foreach ($jet as $unJet) {
-        $unJet['prix'] = number_format($unJet['prix'], 0, ',', ' ');
+    foreach ($jet as $oneJet) {
+        $oneJet['prix'] = number_format($oneJet['prix'], 0, ',', ' ');
     ?>
         <div class="col-xl-12 col-sm col-lg col-md p-5" style="background-color :whitesmoke;">
             <div class="col-xl-7 col-sm mx-auto card-group">
                 <div class="card border shadow-0">
                     <div class="hover-overlay ripple p-2" data-mdb-ripple-color="light">
-                        <img src="../pictures/<?= $unJet['nom'] ?>.png" class="card-img-top rounded" alt="<?= $unJet['nom'] ?>" />
+                        <img src="../pictures/<?= $oneJet['nom'] ?>.png" class="card-img-top rounded" alt="<?= $oneJet['nom'] ?>" />
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title mb-5 text-center"><?= $unJet['nom'] . ' Prix : ' . $unJet['prix'] . '€' ?></h5>
+                        <h5 class="card-title mb-5 text-center"><?= $oneJet['nom'] . ' Prix : ' . $oneJet['prix'] . '€' ?></h5>
                         <h4 class="card-title mb-5 text-center">Choix de la couleur </h4>
                         <hr>
                         <div class="row">

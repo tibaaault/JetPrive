@@ -1,5 +1,4 @@
 <?php
-$racine = $_SESSION['racine'];
 
 class Index
 {
